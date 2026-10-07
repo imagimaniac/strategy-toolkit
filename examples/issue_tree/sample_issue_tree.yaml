@@ -1,0 +1,34 @@
+module: issue_tree
+objective: Improve customer onboarding conversion by 25% in 90 days
+assumptions:
+  - Focus on high-intent signups only
+nodes:
+  - id: A
+    label: Acquisition & landing experience
+    children:
+      - id: A1
+        label: Landing page clarity (value prop)
+        rationale: Message-market fit
+      - id: A2
+        label: Traffic quality
+        rationale: Paid vs organic intent
+  - id: B
+    label: Signup flow friction
+    children:
+      - id: B1
+        label: Form length
+        children:
+          - id: B1a
+            label: Required fields
+          - id: B1b
+            label: Progressive profiling
+      - id: B2
+        label: Identity verification friction
+  - id: C
+    label: Activation & first value
+    children:
+      - id: C1
+        label: Time to value
+        rationale: Delayed value kills activation
+      - id: C2
+        label: Empty states & onboarding tour

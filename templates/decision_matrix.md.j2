@@ -1,0 +1,26 @@
+# Decision Matrix: {{ cfg.title }}
+
+**Scale:** {{ cfg.scale }}
+
+| Option | {% for c in cfg.criteria %}{{ c.name }} ({{ "%.1f"|format(c.weight_pct) }}%) | {% endfor %}**Weighted Score** |
+|---|---|---|---|---|---|
+{% for opt in cfg.options %}
+| {{ opt.name }} | {% for c in cfg.criteria %}{{ opt.scores[c.name] }} | {% endfor %}{% set ws = namespace(v=0) %}{% for c in cfg.criteria %}{% set ws.v = ws.v + (opt.scores[c.name]|float * c.weight_pct / 100.0) %}{% endfor %}**{{ "%.2f"|format(ws.v) }}** |
+{% endfor %}
+
+## Criteria
+{% for c in cfg.criteria %}
+- **{{ c.name }}** ({{ c.weight_pct }}%){% if c.notes %}: {{ c.notes }}{% endif %}
+{% endfor %}
+
+## Rationales
+{% for opt in cfg.options %}
+- **{{ opt.name }}:** {% if opt.rationale %}{{ opt.rationale }}{% else %}—{% endif %}
+{% endfor %}
+
+{% if cfg.assumptions %}
+## Assumptions
+{% for a in cfg.assumptions %}
+- {{ a }}
+{% endfor %}
+{% endif %}

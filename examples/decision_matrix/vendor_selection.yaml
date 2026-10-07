@@ -1,0 +1,46 @@
+module: decision_matrix
+title: Vendor Selection (CRM)
+scale: "1-10"
+assumptions:
+  - Focus on implementation time + cost + fit
+criteria:
+  - name: Implementation Time
+    weight_pct: 20.0
+    notes: "Lower is better in practice, score feasibility 1-10"
+  - name: Total Cost of Ownership
+    weight_pct: 25.0
+    notes: "3-year TCO view"
+  - name: Feature Fit
+    weight_pct: 30.0
+    notes: "Coverage of must-haves"
+  - name: Support Quality
+    weight_pct: 15.0
+    notes: "SLAs, responsiveness"
+  - name: Integration Ease
+    weight_pct: 10.0
+    notes: "With existing stack"
+options:
+  - name: Vendor A
+    scores:
+      Implementation Time: 8
+      Total Cost of Ownership: 6
+      Feature Fit: 9
+      Support Quality: 7
+      Integration Ease: 8
+    rationale: "Strong feature fit, moderate TCO"
+  - name: Vendor B
+    scores:
+      Implementation Time: 6
+      Total Cost of Ownership: 9
+      Feature Fit: 6
+      Support Quality: 6
+      Integration Ease: 6
+    rationale: "Cheapest TCO, weaker feature coverage"
+  - name: Vendor C
+    scores:
+      Implementation Time: 9
+      Total Cost of Ownership: 5
+      Feature Fit: 8
+      Support Quality: 8
+      Integration Ease: 7
+    rationale: "Fastest to implement, higher TCO"

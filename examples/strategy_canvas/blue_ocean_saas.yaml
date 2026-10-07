@@ -1,0 +1,36 @@
+module: strategy_canvas
+title: Strategy Canvas - SaaS Productivity
+assumptions:
+  - 0 = low/offering, 10 = high/compelling
+factors:
+  - factor: Ease of Use
+  - factor: Collaboration
+  - factor: Integrations
+  - factor: Automation
+  - factor: Price Sensitivity Fit
+  - factor: Speed to Value
+profiles:
+  - name: Incumbent A
+    values:
+      Ease of Use: 6
+      Collaboration: 8
+      Integrations: 9
+      Automation: 5
+      Price Sensitivity Fit: 3
+      Speed to Value: 4
+  - name: Incumbent B
+    values:
+      Ease of Use: 5
+      Collaboration: 7
+      Integrations: 8
+      Automation: 7
+      Price Sensitivity Fit: 4
+      Speed to Value: 5
+  - name: Challenger (New Offering)
+    values:
+      Ease of Use: 9
+      Collaboration: 6
+      Integrations: 6
+      Automation: 9
+      Price Sensitivity Fit: 9
+      Speed to Value: 9

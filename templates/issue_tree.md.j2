@@ -1,0 +1,22 @@
+# Issue Tree: {{ cfg.objective }}
+
+## Structure
+{% macro render_node(n, depth=0) -%}
+{{ '  ' * depth }}- **{{ n.id }}:** {{ n.label }}{% if n.rationale %} — *{{ n.rationale }}*{% endif %}{% if n.evidence %} (Evidence: {{ n.evidence }}){% endif %}
+{%- if n.children %}
+{%- for c in n.children %}
+{{ render_node(c, depth+1) }}
+{%- endfor %}
+{%- endif %}
+{%- endmacro %}
+
+{% for n in cfg.nodes %}
+{{ render_node(n) }}
+{% endfor %}
+
+{% if cfg.assumptions %}
+## Assumptions
+{% for a in cfg.assumptions %}
+- {{ a }}
+{% endfor %}
+{% endif %}

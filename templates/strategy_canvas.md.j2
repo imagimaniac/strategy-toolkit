@@ -1,0 +1,19 @@
+# Strategy Canvas: {{ cfg.title }}
+
+| Factor | {% for p in cfg.profiles %}{{ p.name }} | {% endfor %} |
+|---|---|---|---|---|
+{% for f in cfg.factors %}
+| {{ f.factor }} | {% for p in cfg.profiles %}{{ p.values[f.factor] }} | {% endfor %} |
+{% endfor %}
+
+## Factors
+{% for f in cfg.factors %}
+- {{ f.factor }}{% if f.notes %}: {{ f.notes }}{% endif %}
+{% endfor %}
+
+{% if cfg.assumptions %}
+## Assumptions
+{% for a in cfg.assumptions %}
+- {{ a }}
+{% endfor %}
+{% endif %}
